@@ -1,25 +1,7 @@
-function loaspk(){
-    let url = 'https://pokeapi.co/api/v2/pokemon/25'
-    fetch(url)
+const fetchPokemon = async (pokemon) => {
     
-    .then((response) =>{
-         return response.json();
-        
-    })
-
-    .then((data) => {
-        // o q faremos com o formato json
-        console.clear();
-        console.log(data);
-        document.getElementById('nome').innerHTML = data['name'];
-        document.getElementById('numero').innerHTML = data['id'];
-        let img = data['sprites']['front_default'];
-        document.getElementById('pic').setAttribute('src', img);
-    })
-    .catch((erro) => {
-        console.log('Erro:' + erro);
-    });
+    const APIResponse = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
+    
+    console.log(APIresponse);
 }
-
-
-document.getElementById('btn1').onclick = loaspk;
+fetchPokemon();
